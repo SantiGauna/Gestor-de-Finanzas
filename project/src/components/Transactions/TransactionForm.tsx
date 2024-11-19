@@ -19,7 +19,7 @@ export const TransactionForm: React.FC = () => {
     description: '',
     amount: '',
     category: '',
-    type: 'expense',
+    type: '',
     accountId: ''
   });
 
@@ -82,11 +82,12 @@ export const TransactionForm: React.FC = () => {
 
           <Grid item xs={12} sm={6}>
             <FormControl fullWidth>
-              <InputLabel>Tipo</InputLabel>
+              <InputLabel>Seleccionar Tipo</InputLabel>
               <Select
                 value={formData.type}
-                label="Tipo"
+                label="Seleccionar Tipo"
                 onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                required
               >
                 <MenuItem value="expense">Gasto</MenuItem>
                 <MenuItem value="income">Ingreso</MenuItem>
@@ -94,18 +95,20 @@ export const TransactionForm: React.FC = () => {
             </FormControl>
           </Grid>
 
+
+
+
+
+
           <Grid item xs={12}>
             <FormControl fullWidth>
-              <InputLabel>Cuenta</InputLabel>
+              <InputLabel>Seleccionar Cuenta</InputLabel>
               <Select
                 value={formData.accountId}
-                label="Cuenta"
+                label="Seleccionar Cuenta"
                 onChange={(e) => setFormData({ ...formData, accountId: e.target.value })}
                 required
               >
-                <MenuItem value="">
-                  <em>Seleccionar cuenta</em>
-                </MenuItem>
                 {accounts.map(account => (
                   <MenuItem key={account.id} value={account.id}>
                     {account.name} ({account.currency})
