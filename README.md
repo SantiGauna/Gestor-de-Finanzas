@@ -1,2 +1,2 @@
-# Gestor-de-Finanzas
+# Gestor de Finanzas
 Proyecto Personal
